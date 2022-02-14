@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import Text from "../components/Text";
 
 export default function Homepage() {
   return (
@@ -8,19 +9,36 @@ export default function Homepage() {
         style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
       >
         <div style={{ marginRight: "16px" }}>
-          <ion-icon name="arrow-back-outline" size="large"></ion-icon>
+          {/* <ion-icon name="arrow-back-outline" size="large"></ion-icon> */}
+          <span className="material-icons-outlined">arrow_back</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <p>Alamat pengantaran</p>
+          <Text
+            fontSize="12px"
+            fontWeight="normal"
+            color="#6e7679"
+            textTransform="uppercase"
+          >
+            Alamat pengantaran
+          </Text>
           <div
             style={{
               display: "flex",
               flexDirection: "row",
-              alignItems: "end",
+              alignItems: "center",
             }}
           >
-            <p style={{ paddingRight: "4px" }}>Tokopedia tower</p>
-            <ion-icon name="chevron-down-outline"></ion-icon>
+            <Text
+              fontSize="20px"
+              fontWeight="bold"
+              color="#424749"
+              textTransform="capitalize"
+            >
+              tokopedia tower
+            </Text>
+            <div style={{ marginLeft: "4px" }}>
+              <ion-icon name="chevron-down-outline" color="#f9234a"></ion-icon>
+            </div>
           </div>
         </div>
       </div>
