@@ -1,3 +1,5 @@
+import Button from "../components/Button";
+
 export default function Homepage() {
   return (
     <div style={{ display: "flex", flexDirection: "column", padding: "16px" }}>
@@ -34,36 +36,22 @@ export default function Homepage() {
           justifyContent: "space-evenly",
         }}
       >
-        <button
-          style={{
-            backgroundColor: "#424749",
-            color: "#f1f1f2",
-            padding: "8px 16px",
-            margin: 0,
-            borderRadius: "4px",
-            width: "100%",
-            fontFamily: "Inter",
-            fontSize: "16px",
-            lineHeight: 1.5,
-          }}
+        <Button
+          color="#f1f1f2"
+          bgColor="#424749"
+          wFull={true}
+          radius="4px 0 0 4px"
         >
           Lunch
-        </button>
-        <button
-          style={{
-            backgroundColor: "#f1f1f2",
-            color: "#424749",
-            padding: "8px 16px",
-            margin: 0,
-            borderRadius: "4px",
-            width: "100%",
-            fontFamily: "Inter",
-            fontSize: "16px",
-            lineHeight: 1.5,
-          }}
+        </Button>
+        <Button
+          color="#6e7679"
+          bgColor="#f1f1f2"
+          wFull={true}
+          radius="0 4px 4px 0"
         >
           Dinner
-        </button>
+        </Button>
       </div>
 
       {/* Date */}
