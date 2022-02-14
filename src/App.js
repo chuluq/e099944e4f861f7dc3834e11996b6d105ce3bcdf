@@ -1,22 +1,24 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Fragment } from "react";
+import { ThemeProvider } from "styled-components";
 import { Homepage } from "./pages";
+
+const theme = {
+  colors: {
+    orange: "#f9234a",
+    red: "#a23530",
+    darkGrey: "#424749",
+    lightGrey: "#6e7679",
+    darkWhite: "#e2e4e4",
+    lightWhite: "#f1f1f2",
+  },
+};
 
 export default function App() {
   return (
-    <Router>
-      {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-      <Switch>
-        <Route path="/">
-          <Homepage />
-        </Route>
-        {/* <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route> */}
-      </Switch>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Fragment>
+        <Homepage />
+      </Fragment>
+    </ThemeProvider>
   );
 }

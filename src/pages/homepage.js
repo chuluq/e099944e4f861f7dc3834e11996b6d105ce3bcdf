@@ -32,7 +32,7 @@ export default function Homepage() {
             <Text
               fontSize="20px"
               fontWeight="bold"
-              color="#424749"
+              color="#6e7679"
               textTransform="capitalize"
             >
               tokopedia tower
@@ -85,14 +85,14 @@ export default function Homepage() {
           marginTop: "32px",
         }}
       >
-        <p
-          style={{
-            fontSize: "16px",
-            fontWeight: "bold",
-          }}
+        <Text
+          fontSize="16px"
+          fontWeight="bold"
+          color="#424749"
+          textTransform="capitalize"
         >
           Kamis, 13 Maret 2019
-        </p>
+        </Text>
       </div>
 
       {/* Cards */}
