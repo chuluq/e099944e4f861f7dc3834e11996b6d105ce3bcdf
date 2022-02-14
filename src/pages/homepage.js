@@ -1,5 +1,6 @@
-import Button from "../components/Button";
-import Text from "../components/Text";
+import { Button } from "../components/Button.styled";
+import Text from "../components/Text.styled";
+import "boxicons";
 
 export default function Homepage() {
   return (
@@ -10,7 +11,7 @@ export default function Homepage() {
       >
         <div style={{ marginRight: "16px" }}>
           {/* <ion-icon name="arrow-back-outline" size="large"></ion-icon> */}
-          <span className="material-icons-outlined">arrow_back</span>
+          <box-icon name="arrow-back"></box-icon>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <Text
@@ -57,16 +58,18 @@ export default function Homepage() {
         <Button
           color="#f1f1f2"
           bgColor="#424749"
-          wFull={true}
+          width="100%"
           radius="4px 0 0 4px"
+          borderWidth="1px 0 1px 1px"
         >
           Lunch
         </Button>
         <Button
           color="#6e7679"
-          bgColor="#f1f1f2"
-          wFull={true}
+          width="100%"
           radius="0 4px 4px 0"
+          borderWidth="1px 1px 1px 0"
+          borderColor="#6e7679"
         >
           Dinner
         </Button>
