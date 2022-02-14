@@ -1,5 +1,6 @@
-import { Button } from "../components/Button.styled";
-import { Text } from "../components/Text.styled";
+import { StyledButton } from "../components/Button.styled";
+import { StyledText } from "../components/Text.styled";
+import { StyledCard } from "../components/Card.styled";
 import "boxicons";
 
 export default function Homepage() {
@@ -14,14 +15,14 @@ export default function Homepage() {
           <box-icon name="arrow-back"></box-icon>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <Text
+          <StyledText
             fontSize="12px"
             fontWeight="normal"
             color="#6e7679"
             textTransform="uppercase"
           >
             Alamat pengantaran
-          </Text>
+          </StyledText>
           <div
             style={{
               display: "flex",
@@ -29,14 +30,14 @@ export default function Homepage() {
               alignItems: "center",
             }}
           >
-            <Text
+            <StyledText
               fontSize="20px"
               fontWeight="bold"
               color="#6e7679"
               textTransform="capitalize"
             >
               tokopedia tower
-            </Text>
+            </StyledText>
             <div style={{ marginLeft: "4px" }}>
               <box-icon
                 name="chevron-down"
@@ -59,7 +60,7 @@ export default function Homepage() {
           justifyContent: "space-evenly",
         }}
       >
-        <Button
+        <StyledButton
           color="#f1f1f2"
           bgColor="#424749"
           width="100%"
@@ -67,8 +68,8 @@ export default function Homepage() {
           borderWidth="1px 0 1px 1px"
         >
           Lunch
-        </Button>
-        <Button
+        </StyledButton>
+        <StyledButton
           color="#6e7679"
           width="100%"
           radius="0 4px 4px 0"
@@ -76,7 +77,7 @@ export default function Homepage() {
           borderColor="#6e7679"
         >
           Dinner
-        </Button>
+        </StyledButton>
       </div>
 
       {/* Date */}
@@ -85,14 +86,14 @@ export default function Homepage() {
           marginTop: "32px",
         }}
       >
-        <Text
+        <StyledText
           fontSize="16px"
           fontWeight="bold"
           color="#424749"
           textTransform="capitalize"
         >
           Kamis, 13 Maret 2019
-        </Text>
+        </StyledText>
       </div>
 
       {/* Cards */}
@@ -104,27 +105,72 @@ export default function Homepage() {
           marginTop: "16px",
         }}
       >
-        <div
-          style={{
-            boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-            borderRadius: "4px",
-          }}
-        >
+        <StyledCard>
           <img
             src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
             alt="food"
-            style={{ width: "100%", height: "auto", borderRadius: "4px" }}
           />
           <div style={{ padding: "16px" }}>
             {/* Rate */}
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <p>4.5</p>
-              <ion-icon name="star"></ion-icon>
+            <div style={{ display: "flex", alignItems: "baseline" }}>
+              <StyledText
+                fontSize="16px"
+                fontWeight="500"
+                color="#6e7679"
+                margin="0 4px 0 0"
+              >
+                4.5
+              </StyledText>
+              <box-icon
+                type="solid"
+                name="star"
+                size="xs"
+                color="#f9234a"
+              ></box-icon>
+              <box-icon
+                type="solid"
+                name="star"
+                size="xs"
+                color="#f9234a"
+              ></box-icon>
+              <box-icon
+                type="solid"
+                name="star"
+                size="xs"
+                color="#f9234a"
+              ></box-icon>
+              <box-icon
+                type="solid"
+                name="star"
+                size="xs"
+                color="#f9234a"
+              ></box-icon>
+              <box-icon
+                type="solid"
+                name="star-half"
+                size="xs"
+                color="#f9234a"
+              ></box-icon>
             </div>
-            <p style={{ fontSize: "16px", fontWeight: "bold" }}>
-              Roasted Chicken with Scrambled Egg
-            </p>
-            <p>by Kulina &middot; Uptown Luch</p>
+            <div style={{ marginTop: "8px", marginBottom: "16px" }}>
+              <StyledText
+                fontSize="16px"
+                fontWeight="bold"
+                color="#6e7679"
+                textTransform="capitalize"
+              >
+                Roasted Chicken with Scrambled Egg
+              </StyledText>
+              <StyledText
+                fontSize="12px"
+                fontWeight="400"
+                color="#424749"
+                textTransform="capitalize"
+                margin="4px 0 0 0"
+              >
+                by Kulina &middot; Uptown Luch
+              </StyledText>
+            </div>
             <div
               style={{
                 display: "flex",
@@ -132,23 +178,28 @@ export default function Homepage() {
                 justifyContent: "space-between",
               }}
             >
-              <p>Rp 35,000</p>
-              <button
-                style={{
-                  backgroundColor: "#f1f1f2",
-                  color: "#424749",
-                  padding: "8px 16px",
-                  margin: 0,
-                  borderRadius: "4px",
-                  fontFamily: "Inter",
-                  fontSize: "16px",
-                }}
+              <StyledText
+                fontSize="16px"
+                fontWeight="bold"
+                color="#6e7679"
+                textTransform="capitalize"
+              >
+                Rp 35,000
+              </StyledText>
+              <StyledButton
+                bgColor="#f9234a"
+                padding="8px 16px"
+                radius="4px"
+                borderWidth="0"
+                borderColor="#6e7679"
+                textTransform="uppercase"
+                fontWeight="normal"
               >
                 Add +
-              </button>
+              </StyledButton>
             </div>
           </div>
-        </div>
+        </StyledCard>
       </div>
     </div>
   );
