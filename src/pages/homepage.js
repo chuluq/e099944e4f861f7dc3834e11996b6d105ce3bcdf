@@ -1,5 +1,5 @@
 import { Button } from "../components/Button.styled";
-import Text from "../components/Text.styled";
+import { Text } from "../components/Text.styled";
 import "boxicons";
 
 export default function Homepage() {
@@ -38,7 +38,11 @@ export default function Homepage() {
               tokopedia tower
             </Text>
             <div style={{ marginLeft: "4px" }}>
-              <ion-icon name="chevron-down-outline" color="#f9234a"></ion-icon>
+              <box-icon
+                name="chevron-down"
+                size="sm"
+                color="#f9234a"
+              ></box-icon>
             </div>
           </div>
         </div>
