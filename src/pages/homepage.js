@@ -22,8 +22,12 @@ export default function Homepage() {
 
   const dispatch = useDispatch();
 
+  const LUNCH = "LUNCH";
+  const DINNER = "DINNER";
+
   const [isModalOpen, setModalOpen] = useState(false);
   const [isBtnVisible, setBtnVisible] = useState(true);
+  const [isBtnActive, setBtnActive] = useState(LUNCH);
   let [locationList, setLocationList] = useState([]);
   const [search, setSearch] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
@@ -99,6 +103,10 @@ export default function Homepage() {
     return rect.top + scrollTop;
   };
 
+  const handleClickOption = (option) => {
+    setBtnActive(option);
+  };
+
   const handleAddOrder = (order) => {
     dispatch(showCart());
     dispatch(addOrderCount());
@@ -162,20 +170,24 @@ export default function Homepage() {
             }}
           >
             <StyledButton
-              color="#f1f1f2"
-              bgColor="#424749"
-              width="100%"
-              radius="4px 0 0 4px"
+              color={isBtnActive === LUNCH ? "#f1f1f2" : "#6e7679"}
+              bgColor={isBtnActive === LUNCH && "#424749"}
+              borderColor={!isBtnActive === LUNCH && "#6e7679"}
               borderWidth="1px 0 1px 1px"
+              radius="4px 0 0 4px"
+              width="100%"
+              onClick={() => handleClickOption(LUNCH)}
             >
               Lunch
             </StyledButton>
             <StyledButton
-              color="#6e7679"
-              width="100%"
-              radius="0 4px 4px 0"
+              color={isBtnActive === DINNER ? "#f1f1f2" : "#6e7679"}
+              bgColor={isBtnActive === DINNER && "#424749"}
+              borderColor={!isBtnActive === DINNER && "#6e7679"}
               borderWidth="1px 1px 1px 0"
-              borderColor="#6e7679"
+              radius="0 4px 4px 0"
+              width="100%"
+              onClick={() => handleClickOption(DINNER)}
             >
               Dinner
             </StyledButton>

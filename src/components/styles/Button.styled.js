@@ -13,4 +13,5 @@ export const StyledButton = styled.button`
   border-style: solid;
   border-color: ${({ borderColor }) => borderColor};
   border-radius: ${({ radius }) => radius};
+  cursor: pointer;
 `;
