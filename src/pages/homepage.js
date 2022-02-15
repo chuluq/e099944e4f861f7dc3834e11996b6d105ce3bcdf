@@ -1,13 +1,33 @@
+import { useState, useEffect } from "react";
 import { StyledButton } from "../components/styles/Button.styled";
 import { StyledText } from "../components/styles/Text.styled";
 import Card from "../components/Card";
 
 export default function Homepage() {
+  const [isCartVisible, setCartVisible] = useState(false);
+
   return (
-    <div style={{ display: "flex", flexDirection: "column", padding: "16px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        padding: "16px",
+        height: "100%",
+        width: "100%",
+        backgroundColor: "#fff",
+      }}
+    >
       {/* Top Nav */}
       <div
-        style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          backgroundColor: "#fff",
+          width: "100%",
+          position: "sticky",
+          top: 0,
+        }}
       >
         <div style={{ marginRight: "16px" }}>
           {/* <ion-icon name="arrow-back-outline" size="large"></ion-icon> */}
@@ -49,6 +69,7 @@ export default function Homepage() {
       </div>
 
       {/* Calendar */}
+      <div></div>
 
       {/* Button */}
       <div
@@ -108,6 +129,17 @@ export default function Homepage() {
         <Card />
         <Card />
         <Card />
+      </div>
+
+      <div
+        style={{
+          backgroundColor: "#a23530",
+          position: "sticky",
+          bottom: 0,
+          width: "100%",
+        }}
+      >
+        <p>5 items</p>
       </div>
     </div>
   );
