@@ -2,7 +2,7 @@ import { StyledCard } from "./styles/Card.styled";
 import { StyledText } from "./styles/Text.styled";
 import { StyledButton } from "./styles/Button.styled";
 
-export default function Card() {
+export default function Card({ showCart }) {
   return (
     <StyledCard>
       <img
@@ -66,6 +66,7 @@ export default function Card() {
             borderColor="#6e7679"
             textTransform="uppercase"
             fontWeight="normal"
+            onClick={showCart && showCart}
           >
             Add +
           </StyledButton>

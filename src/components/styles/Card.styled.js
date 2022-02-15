@@ -4,9 +4,9 @@ export const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: 0px 8px 10px 0px rgba(10, 31, 68, 0.1);
   border-radius: 4px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 
   img {
     width: 100%;
