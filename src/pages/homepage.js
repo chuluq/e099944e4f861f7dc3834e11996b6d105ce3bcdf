@@ -119,14 +119,12 @@ export default function Homepage() {
           </div>
         </StyledHeader>
 
-        <div style={{ padding: "16px 16px 56px" }} id="date">
+        <div
+          style={{ padding: isCartVisible ? "16px 16px 56px" : "16px" }}
+          id="date"
+        >
           {/* Date */}
-          <div
-            className="date"
-            style={{
-              marginTop: "16px",
-            }}
-          >
+          <div className="date" style={{ marginTop: "16px" }}>
             <StyledText
               fontSize="16px"
               fontWeight="bold"
@@ -148,15 +146,17 @@ export default function Homepage() {
             }}
           >
             {foods?.map((item) => {
-              const { id, menu, restaurant, price, rating } = item;
+              const { id, menu, restaurant, price, rating, img } = item;
 
               return (
                 <Card
                   key={id}
+                  id={id}
                   menu={menu}
                   restaurant={restaurant}
                   price={price}
                   rating={rating}
+                  image={img}
                   showCart={() => dispatch(showCart())}
                 />
               );

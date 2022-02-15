@@ -5,6 +5,7 @@ export const foods = [
     restaurant: "Kulina &middot; Uptown Luch",
     price: 35000,
     rating: 4,
+    img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const foods = [
     restaurant: "Kulina &middot; Uptown Luch",
     price: 35000,
     rating: 4,
+    img: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const foods = [
     restaurant: "Kulina &middot; Uptown Luch",
     price: 35000,
     rating: 4,
+    img: "https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const foods = [
     restaurant: "Kulina &middot; Uptown Luch",
     price: 35000,
     rating: 4,
+    img: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
   },
   {
     id: 5,
@@ -33,5 +37,6 @@ export const foods = [
     restaurant: "Kulina &middot; Uptown Luch",
     price: 35000,
     rating: 4,
+    img: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
   },
 ];

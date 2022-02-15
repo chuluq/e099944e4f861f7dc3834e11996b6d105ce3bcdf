@@ -10,7 +10,7 @@ export const StyledCard = styled.div`
 
   img {
     width: 100%;
-    height: auto;
+    height: 250px;
     border-radius: 4px 4px 0 0;
   }
 `;

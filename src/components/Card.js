@@ -2,13 +2,18 @@ import { StyledCard } from "./styles/Card.styled";
 import { StyledText } from "./styles/Text.styled";
 import { StyledButton } from "./styles/Button.styled";
 
-export default function Card({ menu, restaurant, price, rating, showCart }) {
+export default function Card({
+  id,
+  menu,
+  restaurant,
+  price,
+  rating,
+  image,
+  showCart,
+}) {
   return (
     <StyledCard>
-      <img
-        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
-        alt="food"
-      />
+      <img src={image} alt={`food ${id}`} />
       <div style={{ padding: "16px" }}>
         {/* Rate */}
         <div style={{ display: "flex", alignItems: "center" }}>
