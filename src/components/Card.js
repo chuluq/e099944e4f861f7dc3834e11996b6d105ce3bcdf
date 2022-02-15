@@ -1,4 +1,3 @@
-import "boxicons";
 import { StyledCard } from "./styles/Card.styled";
 import { StyledText } from "./styles/Text.styled";
 import { StyledButton } from "./styles/Button.styled";
@@ -12,7 +11,7 @@ export default function Card() {
       />
       <div style={{ padding: "16px" }}>
         {/* Rate */}
-        <div style={{ display: "flex", alignItems: "baseline" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           <StyledText
             fontSize="16px"
             fontWeight="500"
@@ -21,36 +20,9 @@ export default function Card() {
           >
             4.5
           </StyledText>
-          <box-icon
-            type="solid"
-            name="star"
-            size="xs"
-            color="#f9234a"
-          ></box-icon>
-          <box-icon
-            type="solid"
-            name="star"
-            size="xs"
-            color="#f9234a"
-          ></box-icon>
-          <box-icon
-            type="solid"
-            name="star"
-            size="xs"
-            color="#f9234a"
-          ></box-icon>
-          <box-icon
-            type="solid"
-            name="star"
-            size="xs"
-            color="#f9234a"
-          ></box-icon>
-          <box-icon
-            type="solid"
-            name="star-half"
-            size="xs"
-            color="#f9234a"
-          ></box-icon>
+          <span className="material-icons" style={{ fontSize: "14px" }}>
+            star
+          </span>
         </div>
         <div style={{ marginTop: "8px", marginBottom: "16px" }}>
           <StyledText
