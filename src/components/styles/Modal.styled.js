@@ -30,7 +30,7 @@ export const StyledModal = styled.div`
       outline: none;
       border: none;
       padding: 8px;
-      color: ${({ theme }) => theme.colors.subText};
+      color: ${({ theme }) => theme.colors.mainText};
     }
 
     input::placeholder {
@@ -61,7 +61,7 @@ export const StyledModal = styled.div`
 
         .title {
           font-family: Inter;
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 500;
           color: ${({ theme }) => theme.colors.mainText};
         }
@@ -69,9 +69,9 @@ export const StyledModal = styled.div`
         .street {
           margin-top: 4px;
           font-family: Inter;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 400;
-          color: ${({ theme }) => theme.colors.mainText};
+          color: ${({ theme }) => theme.colors.subText};
         }
       }
     }

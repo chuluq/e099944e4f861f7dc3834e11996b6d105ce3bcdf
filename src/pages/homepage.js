@@ -27,6 +27,7 @@ export default function Homepage() {
   let [locationList, setLocationList] = useState([]);
   const [search, setSearch] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
+  const [selectedLocation, setSelectedLocation] = useState("Tokopedia Tower");
 
   // Track scroll
   useEffect(() => {
@@ -104,6 +105,11 @@ export default function Homepage() {
     dispatch(addOrderDetails(order));
   };
 
+  const handleAddLocation = (loc) => {
+    setSelectedLocation(loc);
+    setModalOpen(false);
+  };
+
   return (
     <Fragment>
       <StyledContainer>
@@ -129,10 +135,10 @@ export default function Homepage() {
                 <StyledText
                   fontSize="20px"
                   fontWeight="bold"
-                  color="#6e7679"
+                  color="#424749"
                   textTransform="capitalize"
                 >
-                  tokopedia tower
+                  {selectedLocation}
                 </StyledText>
                 <div className="header-location-picker-icon">
                   <i className="material-icons">expand_more</i>
@@ -189,7 +195,7 @@ export default function Homepage() {
               color="#424749"
               textTransform="capitalize"
             >
-              Kamis, 13 Maret 2019
+              Kamis. 13 Maret 2019
             </StyledText>
           </div>
 
@@ -242,7 +248,11 @@ export default function Homepage() {
               {locationList.length > 0
                 ? locationList?.map((item, index) => {
                     return (
-                      <div className="location-details" key={index}>
+                      <div
+                        className="location-details"
+                        key={index}
+                        onClick={() => handleAddLocation(item?.name)}
+                      >
                         <i className="material-icons">location_on</i>
                         <div className="location-name">
                           <p className="title">{item?.name}</p>
@@ -253,7 +263,11 @@ export default function Homepage() {
                   })
                 : locations?.map((item, index) => {
                     return (
-                      <div className="location-details" key={index}>
+                      <div
+                        className="location-details"
+                        key={index}
+                        onClick={() => handleAddLocation(item?.name)}
+                      >
                         <i className="material-icons">location_on</i>
                         <div className="location-name">
                           <p className="title">{item?.name}</p>

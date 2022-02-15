@@ -39,7 +39,7 @@ export default function Card({
           <StyledText
             fontSize="16px"
             fontWeight="bold"
-            color="#6e7679"
+            color="#424749"
             textTransform="capitalize"
           >
             {menu}
@@ -47,7 +47,7 @@ export default function Card({
           <StyledText
             fontSize="12px"
             fontWeight="400"
-            color="#424749"
+            color="#6e7679"
             textTransform="capitalize"
             margin="4px 0 0 0"
           >
@@ -64,7 +64,7 @@ export default function Card({
           <StyledText
             fontSize="16px"
             fontWeight="bold"
-            color="#6e7679"
+            color="#424749"
             textTransform="capitalize"
           >
             {new Intl.NumberFormat("id-ID", {
@@ -73,13 +73,14 @@ export default function Card({
             }).format(price)}
           </StyledText>
           <StyledButton
+            fontSize="14px"
             bgColor="#f9234a"
             padding="8px 16px"
             radius="4px"
             borderWidth="0"
             borderColor="#6e7679"
             textTransform="uppercase"
-            fontWeight="normal"
+            fontWeight="500"
             onClick={addOrder}
           >
             Add +
