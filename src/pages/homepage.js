@@ -12,7 +12,8 @@ import { StyledAddCart } from "../components/styles/AddCart.styled";
 import { StyledModal } from "../components/styles/Modal.styled";
 import Card from "../components/Card";
 
-import { foods } from "../constants/data";
+import { foods } from "../constants/foods";
+import { locations } from "../constants/locations";
 
 export default function Homepage() {
   const isCartVisible = useSelector((state) => state.cart.isVisible);
@@ -20,13 +21,44 @@ export default function Homepage() {
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [isBtnVisible, setBtnVisible] = useState(true);
+  let [locationList, setLocationList] = useState([]);
+  const [search, setSearch] = useState("");
 
   // Track scroll
   useEffect(() => {
+    if (locations) {
+      setLocationList(locations);
+    }
+
     window.addEventListener("scroll", listenToScroll);
     return () => window.removeEventListener("scroll", listenToScroll);
+
     // eslint-disable-next-line
   }, []);
+
+  // Search locations
+  useEffect(() => {
+    if (search) {
+      searchLocations(search);
+    } else {
+      setLocationList(locations);
+    }
+  }, [search]);
+
+  const handleChangeSearch = (value) => setSearch(value);
+
+  const searchLocations = (keyword) => {
+    const searchTerm = keyword.toLowerCase();
+
+    const searchResults = locationList.filter((item) => {
+      return (
+        item?.name?.toLowerCase().match(new RegExp(searchTerm, "g")) ||
+        item?.street?.toLowerCase().match(new RegExp(searchTerm, "g"))
+      );
+    });
+
+    setLocationList(searchResults);
+  };
 
   const listenToScroll = () => {
     let heightToHideFrom = getOffset(document.querySelector("#date"));
@@ -122,9 +154,10 @@ export default function Homepage() {
         <div
           style={{ padding: isCartVisible ? "16px 16px 56px" : "16px" }}
           id="date"
+          className="date-container"
         >
           {/* Date */}
-          <div className="date" style={{ marginTop: "16px" }}>
+          <div className="date">
             <StyledText
               fontSize="16px"
               fontWeight="bold"
@@ -136,15 +169,7 @@ export default function Homepage() {
           </div>
 
           {/* Cards */}
-          <div
-            className="cards"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              marginTop: "16px",
-            }}
-          >
+          <div className="cards">
             {foods?.map((item) => {
               const { id, menu, restaurant, price, rating, img } = item;
 
@@ -179,39 +204,39 @@ export default function Homepage() {
             <p>Cek makanan yang tersedia di lokasi kamu!</p>
             <div className="search">
               <i className="material-icons">location_on</i>
-              <input type="text" placeholder="Search location..." />
+              <input
+                type="text"
+                placeholder="Search location..."
+                value={search}
+                onChange={(e) => handleChangeSearch(e.target.value)}
+              />
             </div>
 
             {/* List location */}
             <div className="location-list">
-              <div className="location-details">
-                <i className="material-icons">location_on</i>
-                <div className="location-name">
-                  <p className="title">Kulina</p>
-                  <p className="street">Jalan Tulodong Atas 28, Senayan</p>
-                </div>
-              </div>
-              <div className="location-details">
-                <i className="material-icons">location_on</i>
-                <div className="location-name">
-                  <p className="title">Kulina</p>
-                  <p className="street">Jalan Tulodong Atas 28, Senayan</p>
-                </div>
-              </div>
-              <div className="location-details">
-                <i className="material-icons">location_on</i>
-                <div className="location-name">
-                  <p className="title">Kulina</p>
-                  <p className="street">Jalan Tulodong Atas 28, Senayan</p>
-                </div>
-              </div>
-              <div className="location-details">
-                <i className="material-icons">location_on</i>
-                <div className="location-name">
-                  <p className="title">Kulina</p>
-                  <p className="street">Jalan Tulodong Atas 28, Senayan</p>
-                </div>
-              </div>
+              {locationList.length > 0
+                ? locationList?.map((item, index) => {
+                    return (
+                      <div className="location-details" key={index}>
+                        <i className="material-icons">location_on</i>
+                        <div className="location-name">
+                          <p className="title">{item?.name}</p>
+                          <p className="street">{item?.street}</p>
+                        </div>
+                      </div>
+                    );
+                  })
+                : locations?.map((item, index) => {
+                    return (
+                      <div className="location-details" key={index}>
+                        <i className="material-icons">location_on</i>
+                        <div className="location-name">
+                          <p className="title">{item?.name}</p>
+                          <p className="street">{item?.street}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
             </div>
           </StyledModal>
         </BottomSheet>

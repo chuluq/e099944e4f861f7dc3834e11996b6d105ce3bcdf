@@ -7,4 +7,8 @@ export const StyledContainer = styled.div`
   width: 100%;
   height: 100%;
   background-color: #fff;
+
+  .date-container .date {
+    margin: 16px 0;
+  }
 `;
