@@ -67,7 +67,10 @@ export default function Card({
             color="#6e7679"
             textTransform="capitalize"
           >
-            Rp {price}
+            {new Intl.NumberFormat("id-ID", {
+              style: "currency",
+              currency: "IDR",
+            }).format(price)}
           </StyledText>
           <StyledButton
             bgColor="#f9234a"
