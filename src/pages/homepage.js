@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect } from "react";
 import { BottomSheet } from "react-spring-bottom-sheet";
 
 import { useSelector, useDispatch } from "react-redux";
-import { showCart } from "../redux/cartSlice";
+import { showCart, addOrderCount, addOrderDetails } from "../redux/cartSlice";
 
 import { StyledContainer } from "../components/styles/Container.styled";
 import { StyledHeader } from "../components/styles/Header.styled";
@@ -17,12 +17,16 @@ import { locations } from "../constants/locations";
 
 export default function Homepage() {
   const isCartVisible = useSelector((state) => state.cart.isVisible);
+  const orderCount = useSelector((state) => state.cart.orderCount);
+  const orderDetails = useSelector((state) => state.cart.orderDetails);
+
   const dispatch = useDispatch();
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [isBtnVisible, setBtnVisible] = useState(true);
   let [locationList, setLocationList] = useState([]);
   const [search, setSearch] = useState("");
+  const [totalPrice, setTotalPrice] = useState(0);
 
   // Track scroll
   useEffect(() => {
@@ -43,7 +47,22 @@ export default function Homepage() {
     } else {
       setLocationList(locations);
     }
+
+    // eslint-disable-next-line
   }, [search]);
+
+  // Calculate total price
+  useEffect(() => {
+    let sum = 0;
+
+    if (orderCount > 0 && orderDetails) {
+      sum = orderDetails?.reduce((sum, { price }) => {
+        return sum + price;
+      }, 0);
+    }
+
+    setTotalPrice(sum);
+  }, [orderCount, orderDetails]);
 
   const handleChangeSearch = (value) => setSearch(value);
 
@@ -77,6 +96,12 @@ export default function Homepage() {
     const rect = element?.getBoundingClientRect(),
       scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     return rect.top + scrollTop;
+  };
+
+  const handleAddOrder = (order) => {
+    dispatch(showCart());
+    dispatch(addOrderCount());
+    dispatch(addOrderDetails(order));
   };
 
   return (
@@ -182,7 +207,7 @@ export default function Homepage() {
                   price={price}
                   rating={rating}
                   image={img}
-                  showCart={() => dispatch(showCart())}
+                  addOrder={() => handleAddOrder(item)}
                 />
               );
             })}
@@ -245,7 +270,13 @@ export default function Homepage() {
       {isCartVisible && (
         <StyledAddCart>
           <div className="items">
-            <p className="items-price">5 items | Rp 125,000</p>
+            <p className="items-price">
+              {orderCount} items |{" "}
+              {new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR",
+              }).format(totalPrice)}
+            </p>
             <p className="items-info">Termasuk ongkos kirim</p>
           </div>
           <div className="icons">

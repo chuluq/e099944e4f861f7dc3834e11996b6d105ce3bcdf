@@ -9,7 +9,7 @@ export default function Card({
   price,
   rating,
   image,
-  showCart,
+  addOrder,
 }) {
   return (
     <StyledCard>
@@ -77,7 +77,7 @@ export default function Card({
             borderColor="#6e7679"
             textTransform="uppercase"
             fontWeight="normal"
-            onClick={showCart && showCart}
+            onClick={addOrder}
           >
             Add +
           </StyledButton>
