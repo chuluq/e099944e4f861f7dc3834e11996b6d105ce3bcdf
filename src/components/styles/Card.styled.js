@@ -6,7 +6,7 @@ export const StyledCard = styled.div`
   background-color: #fff;
   box-shadow: 0px 8px 10px 0px rgba(10, 31, 68, 0.1);
   border-radius: 4px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 
   img {
     width: 100%;
