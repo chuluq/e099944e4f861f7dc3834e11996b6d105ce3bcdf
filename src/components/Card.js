@@ -2,7 +2,7 @@ import { StyledCard } from "./styles/Card.styled";
 import { StyledText } from "./styles/Text.styled";
 import { StyledButton } from "./styles/Button.styled";
 
-export default function Card({ showCart }) {
+export default function Card({ menu, restaurant, price, rating, showCart }) {
   return (
     <StyledCard>
       <img
@@ -18,11 +18,17 @@ export default function Card({ showCart }) {
             color="#6e7679"
             margin="0 4px 0 0"
           >
-            4.5
+            {rating}
           </StyledText>
-          <span className="material-icons" style={{ fontSize: "14px" }}>
-            star
-          </span>
+          {Array.from({ length: rating }, (item, index) => (
+            <i
+              key={index}
+              className="material-icons"
+              style={{ fontSize: "14px", color: "#f9234a" }}
+            >
+              star
+            </i>
+          ))}
         </div>
         <div style={{ marginTop: "8px", marginBottom: "16px" }}>
           <StyledText
@@ -31,7 +37,7 @@ export default function Card({ showCart }) {
             color="#6e7679"
             textTransform="capitalize"
           >
-            Roasted Chicken with Scrambled Egg
+            {menu}
           </StyledText>
           <StyledText
             fontSize="12px"
@@ -40,7 +46,7 @@ export default function Card({ showCart }) {
             textTransform="capitalize"
             margin="4px 0 0 0"
           >
-            by Kulina &middot; Uptown Luch
+            by {restaurant}
           </StyledText>
         </div>
         <div
@@ -56,7 +62,7 @@ export default function Card({ showCart }) {
             color="#6e7679"
             textTransform="capitalize"
           >
-            Rp 35,000
+            Rp {price}
           </StyledText>
           <StyledButton
             bgColor="#f9234a"

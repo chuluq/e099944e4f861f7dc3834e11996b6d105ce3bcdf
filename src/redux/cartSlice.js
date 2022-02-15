@@ -9,13 +9,10 @@ export const cartSlice = createSlice({
     showCart: (state) => {
       state.isVisible = true;
     },
-    hideCart: (state) => {
-      state.isVisible = false;
-    },
   },
 });
 
 // actions
-export const { showCart, hideCart } = cartSlice.actions;
+export const { showCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

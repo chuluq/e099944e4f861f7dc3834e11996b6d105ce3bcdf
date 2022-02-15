@@ -6,9 +6,9 @@ export const StyledAddCart = styled.div`
   justify-content: space-between;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 96%;
   padding: 8px 16px;
-  margin: 8px 0;
+  margin: 8px;
   border-radius: 4px;
   background-color: ${({ theme }) => theme.colors.stickyCart};
 

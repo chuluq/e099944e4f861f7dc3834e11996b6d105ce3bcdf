@@ -1,8 +1,8 @@
-import { useState, useEffect, Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { BottomSheet } from "react-spring-bottom-sheet";
 
 import { useSelector, useDispatch } from "react-redux";
-import { showCart, hideCart } from "../redux/cartSlice";
+import { showCart } from "../redux/cartSlice";
 
 import { StyledContainer } from "../components/styles/Container.styled";
 import { StyledHeader } from "../components/styles/Header.styled";
@@ -12,6 +12,8 @@ import { StyledAddCart } from "../components/styles/AddCart.styled";
 import { StyledModal } from "../components/styles/Modal.styled";
 import Card from "../components/Card";
 
+import { foods } from "../constants/data";
+
 export default function Homepage() {
   const isCartVisible = useSelector((state) => state.cart.isVisible);
   const dispatch = useDispatch();
@@ -19,6 +21,7 @@ export default function Homepage() {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isBtnVisible, setBtnVisible] = useState(true);
 
+  // Track scroll
   useEffect(() => {
     window.addEventListener("scroll", listenToScroll);
     return () => window.removeEventListener("scroll", listenToScroll);
@@ -144,10 +147,20 @@ export default function Homepage() {
               marginTop: "16px",
             }}
           >
-            <Card showCart={() => dispatch(showCart())} />
-            <Card />
-            <Card />
-            <Card />
+            {foods?.map((item) => {
+              const { id, menu, restaurant, price, rating } = item;
+
+              return (
+                <Card
+                  key={id}
+                  menu={menu}
+                  restaurant={restaurant}
+                  price={price}
+                  rating={rating}
+                  showCart={() => dispatch(showCart())}
+                />
+              );
+            })}
           </div>
         </div>
 
