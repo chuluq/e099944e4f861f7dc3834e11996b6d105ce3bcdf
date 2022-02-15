@@ -7,12 +7,15 @@ import "react-spring-bottom-sheet/dist/style.css";
 
 const theme = {
   colors: {
-    orange: "#f9234a",
-    red: "#a23530",
-    darkGrey: "#424749",
-    lightGrey: "#6e7679",
-    darkWhite: "#e2e4e4",
-    lightWhite: "#f1f1f2",
+    addCart: "#f9234a",
+    stickyCart: "#a23530",
+    mainText: "#424749",
+    lunchBtn: "#424749",
+    activeDate: "#424749",
+    subText: "#6e7679",
+    ratingValue: "#6e7679",
+    pickerIcon: "#e2e4e4",
+    outlineBorder: "#f1f1f2",
   },
 };
 

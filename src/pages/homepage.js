@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import { StyledButton } from "../components/styles/Button.styled";
 import { StyledText } from "../components/styles/Text.styled";
+import { StyledModal } from "../components/styles/Modal.styled";
 import Card from "../components/Card";
 
 export default function Homepage() {
@@ -165,69 +166,45 @@ export default function Homepage() {
           maxHeight * 0.6,
         ]}
       >
-        <div style={{ padding: "16px" }}>
+        <StyledModal>
           <p>Cek makanan yang tersedia di lokasi kamu!</p>
-          <div
-            style={{
-              marginTop: "16px",
-              padding: "8px",
-              display: "flex",
-              width: "100%",
-              border: "1px solid",
-            }}
-          >
-            <i
-              className="material-icons"
-              style={{ padding: "8px", textAlign: "center", color: "red" }}
-            >
-              location_on
-            </i>
-            <input
-              type="text"
-              style={{
-                width: "100%",
-                padding: "8px 0",
-                outline: "none",
-                border: "none",
-              }}
-            />
+          <div className="search">
+            <i className="material-icons">location_on</i>
+            <input type="text" placeholder="Search location..." />
           </div>
 
           {/* List location */}
-          <div style={{ marginTop: "32px" }}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <i
-                className="material-icons"
-                style={{
-                  padding: "4px",
-                  textAlign: "center",
-                  borderRadius: "50%",
-                  backgroundColor: "gray",
-                }}
-              >
-                location_on
-              </i>
-              <div
-                style={{
-                  marginLeft: "16px",
-                  paddingTop: "16px",
-                  paddingBottom: "16px",
-                  display: "flex",
-                  flexDirection: "column",
-                  borderBottom: "1px solid",
-                }}
-              >
-                <p>Kulina</p>
-                <p>Jalan Tulodong Atas 28, Senayan</p>
+          <div className="location-list">
+            <div className="location-details">
+              <i className="material-icons">location_on</i>
+              <div className="location-name">
+                <p className="title">Kulina</p>
+                <p className="street">Jalan Tulodong Atas 28, Senayan</p>
+              </div>
+            </div>
+            <div className="location-details">
+              <i className="material-icons">location_on</i>
+              <div className="location-name">
+                <p className="title">Kulina</p>
+                <p className="street">Jalan Tulodong Atas 28, Senayan</p>
+              </div>
+            </div>
+            <div className="location-details">
+              <i className="material-icons">location_on</i>
+              <div className="location-name">
+                <p className="title">Kulina</p>
+                <p className="street">Jalan Tulodong Atas 28, Senayan</p>
+              </div>
+            </div>
+            <div className="location-details">
+              <i className="material-icons">location_on</i>
+              <div className="location-name">
+                <p className="title">Kulina</p>
+                <p className="street">Jalan Tulodong Atas 28, Senayan</p>
               </div>
             </div>
           </div>
-        </div>
+        </StyledModal>
       </BottomSheet>
     </div>
   );
